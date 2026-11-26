@@ -6,321 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Loneti Avatar</title>
   <link rel="icon" type="image/png" href="icon.png">
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://googleapis.com" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: #06040d;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    #galaxy-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: radial-gradient(ellipse at bottom, #1b0f38 0%, #090514 60%, #030208 100%);
-    }
-
-    #cursor-trail {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      background: rgba(20, 12, 42, 0.65);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      color: #d8b4fe;
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
-    }
-
-    main {
-      max-width: 850px;
-      margin: 55px auto;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: clamp(32px, 6.5vw, 54px);
-      font-weight: 800;
-      margin-bottom: 18px;
-      background: linear-gradient(90deg, #e9d5ff, #c084fc, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.35));
-    }
-
-    .subtitle {
-      color: #cbd5e1;
-      font-size: 17px;
-      line-height: 1.7;
-      max-width: 620px;
-      margin: 0 auto 40px;
-    }
-
-    .card {
-      margin-top: 28px;
-      padding: 32px 26px;
-      background: rgba(25, 19, 43, 0.65);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(139, 92, 246, 0.35);
-      border-radius: 22px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(192, 132, 252, 0.7);
-      box-shadow: 0 12px 40px rgba(137, 84, 216, 0.25);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      font-size: 22px;
-      color: #f3e8ff;
-    }
-
-    .card p {
-      color: #c4bdd4;
-      line-height: 1.6;
-      margin-bottom: 0;
-    }
-
-    .btn-action {
-      display: inline-block;
-      margin-top: 22px;
-      padding: 15px 30px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 14px;
-      background: linear-gradient(135deg, #7c3aed, #9333ea);
-      color: #ffffff !important;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(147, 51, 234, 0.45);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-action:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 28px rgba(168, 85, 247, 0.75);
-    }
-
-    footer {
-      padding: 40px 20px;
-      text-align: center;
-      color: #8b80a3;
-      font-size: 14px;
-    }
+    *{box-sizing:border-box}body{margin:0;background:#06040d;color:#fff;font-family:'Montserrat',sans-serif;overflow-x:hidden;min-height:100vh}#galaxy-bg,#cursor-trail{position:fixed;top:0;left:0;width:100%;height:100%}#galaxy-bg{z-index:-1;background:radial-gradient(ellipse at bottom,#1b0f38 0%,#090514 60%,#030208 100%)}#cursor-trail{pointer-events:none;z-index:9999}header{padding:20px;text-align:center;background:rgba(20,12,42,.75);backdrop-filter:blur(12px);border-bottom:1px solid rgba(168,85,247,.25);position:sticky;top:0;z-index:10}.logo{color:#d8b4fe;font-size:24px;font-weight:800;text-shadow:0 0 15px rgba(192,132,252,.6)}.badge{display:inline-block;margin-left:8px;padding:3px 10px;font-size:12px;font-weight:600;color:#4ade80;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.4);border-radius:20px;vertical-align:middle}main{max-width:850px;margin:45px auto;padding:20px;text-align:center}h1{font-size:clamp(30px,6vw,50px);font-weight:800;margin-bottom:16px;background:linear-gradient(90deg,#e9d5ff,#c084fc,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.subtitle{color:#cbd5e1;font-size:17px;line-height:1.7;max-width:650px;margin:0 auto 35px}.card{margin-top:26px;padding:30px 26px;background:rgba(25,19,43,.72);backdrop-filter:blur(14px);border:1px solid rgba(139,92,246,.35);border-radius:22px;box-shadow:0 8px 32px rgba(0,0,0,.45)}.card h2{margin-top:0;font-size:22px;color:#f3e8ff}.card p{color:#c4bdd4;line-height:1.6}.btn-copy{display:inline-block;margin-top:14px;padding:16px 32px;border:1px solid rgba(255,255,255,.25);border-radius:14px;background:linear-gradient(135deg,#7c3aed,#9333ea)!important;color:#fff!important;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 0 22px rgba(147,51,234,.5)}.btn-copy.copied{background:linear-gradient(135deg,#16a34a,#22c55e)!important}.code-box{margin-top:18px;background:rgba(10,7,20,.85);border:1px solid rgba(139,92,246,.3);border-radius:12px;padding:14px;text-align:left;font-family:monospace;font-size:12px;color:#a78bfa;max-height:120px;overflow-y:auto;word-break:break-all}.steps{text-align:left;max-width:620px;margin:18px auto 0;padding-left:20px;line-height:1.8}.steps li{margin-bottom:8px;color:#cbd5e1}.steps b{color:#e9d5ff}kbd{background:rgba(139,92,246,.25);border:1px solid rgba(192,132,252,.4);border-radius:6px;padding:2px 7px;font-family:monospace;color:#f3e8ff}footer{padding:40px 20px;text-align:center;color:#8b80a3;font-size:14px}
   </style>
 </head>
 <body>
-
-  <canvas id="galaxy-bg"></canvas>
-  <canvas id="cursor-trail"></canvas>
-
-  <header>
-    <div class="logo">✦ Loneti Avatar</div>
-  </header>
-
+  <canvas id="galaxy-bg"></canvas><canvas id="cursor-trail"></canvas>
+  <header><div class="logo">✦ Loneti Avatar <span class="badge">v1.0 Доступно</span></div></header>
   <main>
-    <h1>Твоя аватарка. Твой стиль.</h1>
-    <p class="subtitle">
-      Добро пожаловать в Loneti Avatar!<br>
-      Здесь мы разрабатываем проект пользовательских аватарок и GIF для Loneti.
-    </p>
-
+    <h1>Загружай любые аватарки в Loneti</h1>
+    <p class="subtitle">Устанавливай свои арты, картинки и мемы прямо на холст в HD-качестве — твою новую аватарку увидят все игроки!</p>
     <section class="card">
-      <h2>🖼 Custom Avatar</h2>
-      <p>
-        Собственные изображения, анимированные GIF и персональный стиль.
-      </p>
-      <div class="btn-action" onclick="alert('Расширение пока разрабатывается!')">
-        Скоро будет доступно
-      </div>
+      <h2>🖼 Custom Avatar HD (v1.0)</h2>
+      <p>Нажми на кнопку ниже, чтобы скопировать рабочий скрипт в буфер обмена:</p>
+      <div id="copy-btn" class="btn-copy" onclick="copyScript()">📋 Скопировать скрипт</div>
+      <div class="code-box" id="script-source"></div>
     </section>
-
     <section class="card">
-      <h2>🛡 Безопасность</h2>
-      <p>
-        Никаких краж аккаунтов, спама и скрытых действий.
-      </p>
+      <h2>📖 Как установить аватарку (Инструкция)</h2>
+      <p style="color:#fbbf24;font-size:14px;margin-top:-6px">💻 Скрипт работает только на компьютере или ноутбуке (на телефоне консоль браузера недоступна).</p>
+      <ol class="steps">
+        <li>Нажми кнопку <b>«📋 Скопировать скрипт»</b> выше.</li>
+        <li>Открой в Loneti страницу <b>«Нарисовать новую аватарку»</b> (в настройках профиля).</li>
+        <li>Нажми на клавиатуре <kbd>F12</kbd> (или <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>) и перейди во вкладку <b>Консоль (Console)</b>.</li>
+        <li>Вставь код (<kbd>Ctrl</kbd>+<kbd>V</kbd>) и нажми <kbd>Enter</kbd>. <i>(Если попросит защиту от вставки — напиши <b>разрешить вставку</b> или <b>allow pasting</b> и нажми Enter).</i></li>
+        <li>Нажми сверху <b>«📁 Вставить изображение»</b>, выбери картинку с ПК и нажми <b>«Сохранить аватар» → «Сохранить»</b>!</li>
+      </ol>
     </section>
-
-    <section class="card">
-      <h2>📢 Обновления</h2>
-      <p>Первая версия проекта находится в разработке.</p>
-    </section>
+    <section class="card"><h2>🛡 Безопасность</h2><p>Скрипт работает локально в браузере, не запрашивает пароли и использует стандартное сохранение Loneti.</p></section>
   </main>
-
-  <footer>
-    Loneti Avatar © 2026
-    <p>Неофициальный независимый проект. Не связан с администрацией Loneti.</p>
-  </footer>
-
+  <footer>Loneti Avatar © 2026<p>Неофициальный независимый проект. Не связан с администрацией Loneti.</p></footer>
   <script>
-    // 1. Анимированная галактика
-    const canvas = document.getElementById('galaxy-bg');
-    const ctx = canvas.getContext('2d');
-    let width, height, stars = [], shootingStars = [];
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    for (let i = 0; i < 160; i++) {
-      stars.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 1.6 + 0.3,
-        alpha: Math.random(),
-        speed: Math.random() * 0.015 + 0.005,
-        drift: (Math.random() - 0.5) * 0.15
-      });
-    }
-
-    function spawnShootingStar() {
-      if (Math.random() < 0.012 && shootingStars.length < 2) {
-        shootingStars.push({
-          x: Math.random() * width,
-          y: Math.random() * height * 0.4,
-          len: Math.random() * 90 + 40,
-          speed: Math.random() * 8 + 6,
-          alpha: 1
-        });
-      }
-    }
-
-    function animateGalaxy() {
-      ctx.clearRect(0, 0, width, height);
-
-      const grad = ctx.createRadialGradient(width * 0.5, height * 0.35, 20, width * 0.5, height * 0.35, width * 0.65);
-      grad.addColorStop(0, 'rgba(124, 58, 237, 0.14)');
-      grad.addColorStop(0.5, 'rgba(79, 70, 229, 0.06)');
-      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, width, height);
-
-      stars.forEach(s => {
-        s.alpha += s.speed;
-        if (s.alpha > 1 || s.alpha < 0.15) s.speed *= -1;
-        s.x += s.drift;
-        if (s.x < 0) s.x = width;
-        if (s.x > width) s.x = 0;
-
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(235, 225, 255, ${s.alpha})`;
-        ctx.fill();
-      });
-
-      spawnShootingStar();
-      shootingStars.forEach((ss, idx) => {
-        ss.x -= ss.speed;
-        ss.y += ss.speed * 0.65;
-        ss.alpha -= 0.015;
-
-        const tail = ctx.createLinearGradient(ss.x, ss.y, ss.x + ss.len, ss.y - ss.len * 0.65);
-        tail.addColorStop(0, `rgba(216, 180, 254, ${ss.alpha})`);
-        tail.addColorStop(1, 'rgba(216, 180, 254, 0)');
-
-        ctx.strokeStyle = tail;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(ss.x, ss.y);
-        ctx.lineTo(ss.x + ss.len, ss.y - ss.len * 0.65);
-        ctx.stroke();
-
-        if (ss.alpha <= 0) shootingStars.splice(idx, 1);
-      });
-
-      requestAnimationFrame(animateGalaxy);
-    }
-    animateGalaxy();
-
-    // 2. Радужный исчезающий след за курсором (только на ПК)
-    const trailCanvas = document.getElementById('cursor-trail');
-    const tCtx = trailCanvas.getContext('2d');
-    let trail = [];
-    let hue = 0;
-    const isDesktop = window.matchMedia('(pointer: fine)').matches;
-
-    function resizeTrail() {
-      trailCanvas.width = window.innerWidth;
-      trailCanvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeTrail);
-    resizeTrail();
-
-    if (isDesktop) {
-      window.addEventListener('mousemove', (e) => {
-        trail.push({
-          x: e.clientX,
-          y: e.clientY,
-          hue: hue,
-          life: 1
-        });
-        hue = (hue + 5) % 360;
-      });
-
-      function animateTrail() {
-        tCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
-
-        for (let i = 1; i < trail.length; i++) {
-          const p1 = trail[i - 1];
-          const p2 = trail[i];
-
-          tCtx.beginPath();
-          tCtx.moveTo(p1.x, p1.y);
-          tCtx.lineTo(p2.x, p2.y);
-          tCtx.strokeStyle = `hsla(${p2.hue}, 100%, 65%, ${p2.life})`;
-          tCtx.lineWidth = p2.life * 6;
-          tCtx.lineCap = 'round';
-          tCtx.shadowBlur = 12;
-          tCtx.shadowColor = `hsla(${p2.hue}, 100%, 60%, ${p2.life})`;
-          tCtx.stroke();
-        }
-
-        trail.forEach(p => p.life -= 0.035);
-        trail = trail.filter(p => p.life > 0);
-
-        requestAnimationFrame(animateTrail);
-      }
-      animateTrail();
-    }
+    const AVATAR_SCRIPT="(function(){const old=document.getElementById('loneti-img-uploader');if(old)old.remove();const panel=document.createElement('div');panel.id='loneti-img-uploader';Object.assign(panel.style,{position:'fixed',top:'75px',left:'50%',transform:'translateX(-50%)',zIndex:'999999',background:'linear-gradient(135deg,#1b1136,#2d1854)',border:'2px solid #9333ea',borderRadius:'16px',padding:'14px 20px',color:'#fff',fontFamily:'Arial,sans-serif',boxShadow:'0 8px 30px rgba(0,0,0,.75)',display:'flex',alignItems:'center',gap:'12px'});panel.innerHTML='<span style=\"font-weight:bold;color:#d8b4fe\">✦ Loneti Avatar HD:</span><label style=\"background:#7c3aed;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:bold;font-size:14px\">📁 Вставить изображение<input type=\"file\" id=\"lav-custom-file\" accept=\"image/*\" style=\"display:none\"></label><span id=\"lav-status\" style=\"font-size:13px;color:#cbd5e1\">Выбери картинку с ПК</span><button id=\"lav-close\" style=\"background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer;margin-left:6px\">✕</button>';document.body.appendChild(panel);document.getElementById('lav-close').onclick=()=>panel.remove();let readyPngUrl=null;new MutationObserver(()=>{if(!readyPngUrl)return;document.querySelectorAll('img').forEach(img=>{if(img.src.startsWith('data:image')&&img.src!==readyPngUrl)img.src=readyPngUrl});document.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href')||'';if(h.startsWith('data:image')&&h!==readyPngUrl)a.setAttribute('href',readyPngUrl)})}).observe(document.body,{childList:true,subtree:true,attributes:true});document.getElementById('lav-custom-file').onchange=function(e){const file=e.target.files[0];if(!file)return;const status=document.getElementById('lav-status');status.innerText='Обработка в HD...';const r=new FileReader();r.onload=function(ev){const img=new Image();img.onload=function(){const S=220,oc=document.createElement('canvas');oc.width=S;oc.height=S;const octx=oc.getContext('2d');octx.imageSmoothingEnabled=true;octx.imageSmoothingQuality='high';octx.drawImage(img,0,0,S,S);readyPngUrl=oc.toDataURL('image/png');document.querySelectorAll('canvas').forEach(c=>{if(c.width>50&&c.height>50){const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(oc,0,0,c.width,c.height)}});status.innerHTML='<span style=\"color:#4ade80;font-weight:bold\">HD готово! Жми «Сохранить аватар» ↘</span>'};img.src=ev.target.result};r.readAsDataURL(file)}})();";
+    document.getElementById('script-source').textContent=AVATAR_SCRIPT;
+    function copyScript(){navigator.clipboard.writeText(AVATAR_SCRIPT).then(()=>{const b=document.getElementById('copy-btn');b.textContent='✓ Скрипт скопирован!';b.classList.add('copied');setTimeout(()=>{b.textContent='📋 Скопировать скрипт';b.classList.remove('copied')},2500)})}
+    const c=document.getElementById('galaxy-bg'),ctx=c.getContext('2d');let w,h,stars=[],shoot=[];
+    function rs(){w=c.width=innerWidth;h=c.height=innerHeight}addEventListener('resize',rs);rs();
+    for(let i=0;i<160;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.6+.3,a:Math.random(),s:Math.random()*.015+.005,d:(Math.random()-.5)*.15});
+    (function loop(){ctx.clearRect(0,0,w,h);const g=ctx.createRadialGradient(w*.5,h*.35,20,w*.5,h*.35,w*.65);g.addColorStop(0,'rgba(124,58,237,.14)');g.addColorStop(.5,'rgba(79,70,229,.06)');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<.15)s.s*=-1;s.x+=s.d;if(s.x<0)s.x=w;if(s.x>w)s.x=0;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.28);ctx.fillStyle=`rgba(235,225,255,${s.a})`;ctx.fill()});if(Math.random()<.012&&shoot.length<2)shoot.push({x:Math.random()*w,y:Math.random()*h*.4,l:Math.random()*90+40,s:Math.random()*8+6,a:1});shoot.forEach((ss,i)=>{ss.x-=ss.s;ss.y+=ss.s*.65;ss.a-=.015;const t=ctx.createLinearGradient(ss.x,ss.y,ss.x+ss.l,ss.y-ss.l*.65);t.addColorStop(0,`rgba(216,180,254,${ss.a})`);t.addColorStop(1,'transparent');ctx.strokeStyle=t;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(ss.x,ss.y);ctx.lineTo(ss.x+ss.l,ss.y-ss.l*.65);ctx.stroke();if(ss.a<=0)shoot.splice(i,1)});requestAnimationFrame(loop)})();
+    const tc=document.getElementById('cursor-trail'),tctx=tc.getContext('2d');let tr=[],hue=0;
+    function rtr(){tc.width=innerWidth;tc.height=innerHeight}addEventListener('resize',rtr);rtr();
+    if(matchMedia('(pointer:fine)').matches){addEventListener('mousemove',e=>{tr.push({x:e.clientX,y:e.clientY,h:hue,l:1});hue=(hue+5)%360});(function tloop(){tctx.clearRect(0,0,tc.width,tc.height);for(let i=1;i<tr.length;i++){const p1=tr[i-1],p2=tr[i];tctx.beginPath();tctx.moveTo(p1.x,p1.y);tctx.lineTo(p2.x,p2.y);tctx.strokeStyle=`hsla(${p2.h},100%,65%,${p2.l})`;tctx.lineWidth=p2.l*6;tctx.lineCap='round';tctx.shadowBlur=12;tctx.shadowColor=`hsla(${p2.h},100%,60%,${p2.l})`;tctx.stroke()}tr.forEach(p=>p.l-=.035);tr=tr.filter(p=>p.l>0);requestAnimationFrame(tloop)})()}
   </script>
-
 </body>
 </html>
